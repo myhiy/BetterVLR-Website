@@ -13,7 +13,6 @@ const page = Astro.url.pathname.split("/")[1];
         <div id="logo">
             <a href="/" id="title">
                 <img src="/assets/logo.png" alt="BetterVLR Home" />
-                <div id="oneko" aria-hidden="true"></div>
             </a>
         </div>
         <div id="btns" class="p-label-m">
@@ -104,32 +103,6 @@ const page = Astro.url.pathname.split("/")[1];
 
     #logo {
         position: relative;
-    }
-
-    #oneko {
-        position: absolute;
-
-        top: -3px;
-        right: 7px;
-
-        display: inline-block;
-        width: 32px;
-        height: 32px;
-        image-rendering: pixelated;
-        /* https://raw.githubusercontent.com/adryd325/oneko.js/14bab15a755d0e35cd4ae19c931d96d306f99f42/oneko.gif */
-        background-image: url("/assets/oneko.gif");
-        animation: sleep 1s infinite;
-        cursor: pointer;
-    }
-
-    #oneko:hover {
-        animation: 2.5s 1 forwards wakeup;
-    }
-
-    @media (prefers-reduced-motion) {
-        #oneko {
-            display: none;
-        }
     }
 
     @media only screen and (max-width: 600px) {
