@@ -8,15 +8,22 @@ import AutoSizeGrid from "components/AutoSizeGrid.astro";
 
 const features = [
     {
-        icon: "light-bulb",
-        title: "Easy Install",
-        description: "Super easy to install thanks to our graphical installer",
+        icon: "gear",
+        title: "Customizable",
+        description:
+            "Easily customize VLR to suit your preferences and enhance your experience",
     },
     {
-        icon: "rocket",
-        title: "Great Performance",
+        icon: "joystick",
+        title: "Enhance The Website",
         description:
-            "Built with performance in mind. No more sluggish Discord!",
+            "Enhance the website with features like past players, map winrate, bracket higlighting much and more!",
+    },
+    {
+        icon: "speech-balloon",
+        title: "Enhance The Chat",
+        description:
+            "Enhance the chat with features like emojis, image embedding, polls and much and more!",
     },
     {
         icon: "globe",
@@ -24,21 +31,15 @@ const features = [
         description: "Works just as well inside your favourite Browser!",
     },
     {
+        icon: "artist-palette",
+        title: "Themes",
+        description: "Soon™️",
+    },
+    {
         icon: "locked",
-        title: "Privacy Friendly",
-        description: "Blocks Discord analytics & crash reports out of the box",
-    },
-    {
-        icon: "package",
-        title: "Maintained Actively",
+        title: "Block Users",
         description:
-            "No more broken plugins! Bugs are usually fixed within a day",
-    },
-    {
-        icon: "hammer-and-wrench",
-        title: "Developer Friendly",
-        description:
-            "Flexible and robust plugin system with many APIs empowering you",
+            "Maintain control by blocking unwanted users for a more comfortable interaction",
     },
 ];
 
@@ -46,20 +47,24 @@ if (features.length % 3 !== 0)
     throw new Error("Feature amount must be multiple of 3");
 ---
 
-<Layout description="Vencord is the cutest modification for Discord">
+<Layout description="VLR.gg but better!">
     <header>
         <section class="tagline">
-            <h1 class="p-display">Vencord</h1>
-            <h2>The cutest Discord client mod</h2>
+            <h1 class="p-display">BetterVLR</h1>
+            <h2>VLR.GG but better!</h2>
         </section>
 
         <section class="buttons">
             <AutoSizeGrid>
                 <LinkButton href="/download" class="main-btn">
-                    Download Vencord
+                    Download BetterVLR
                 </LinkButton>
-                <LinkButton href="/discord">Join our Support Server</LinkButton>
-                <LinkButton href="/github">View on GitHub</LinkButton>
+                <LinkButton href="/discord" target="_blank">
+                    Join our Support Server
+                </LinkButton>
+                <LinkButton href="/github" target="_blank">
+                    View on GitHub
+                </LinkButton>
             </AutoSizeGrid>
         </section>
     </header>
@@ -104,7 +109,7 @@ if (features.length % 3 !== 0)
     }
 
     h1 {
-        color: var(--accentPurple);
+        color: var(--accentRed);
     }
 
     h2 {
@@ -118,7 +123,7 @@ if (features.length % 3 !== 0)
     }
 
     .main-btn {
-        background-color: var(--accentPurple);
+        background-color: var(--accentRed);
         color: var(--bgCurrentWord);
         outline: none;
     }

@@ -1,10 +1,8 @@
 ---
 const navLinks = {
-    download: ["Download", "accentPurple"],
-    plugins: ["Plugins", "accentBlue"],
+    download: ["Download", "accentRed"],
+    themes: ["Themes", "accentBlue"],
     faq: ["FAQ", "accentAqua"],
-    docs: ["Docs", "accentGreen"],
-    cloud: ["Cloud", "accentYellow"],
 };
 
 const page = Astro.url.pathname.split("/")[1];
@@ -14,10 +12,7 @@ const page = Astro.url.pathname.split("/")[1];
     <div class="nav-content">
         <div id="logo">
             <a href="/" id="title">
-                <img
-                    src="/assets/logo-nav-oneko-padding.png"
-                    alt="Vencord Home"
-                />
+                <img src="/assets/logo.png" alt="BetterVLR Home" />
                 <div id="oneko" aria-hidden="true"></div>
             </a>
         </div>
@@ -80,6 +75,7 @@ const page = Astro.url.pathname.split("/")[1];
 
     img {
         vertical-align: middle;
+        height: 37px;
     }
 
     li {

@@ -16,8 +16,8 @@ const { title, description, opengraph } = Astro.props;
 const structuredData = JSON.stringify({
     "@context": "https://schema.org",
     "@type": "WebSite",
-    name: "Vencord",
-    alternateName: "VC",
+    name: "BetterVLR",
+    alternateName: "BVLR",
     url: Astro.site,
 });
 ---
@@ -38,16 +38,15 @@ const structuredData = JSON.stringify({
             crossorigin
         />
 
-        <title>{title && `${title} | `}Vencord</title>
+        <title>{title && `${title} | `}BetterVLR</title>
         <meta name="description" content={description} />
-        <meta name="author" content="Vencord Contributors" />
         <meta name="theme-color" content="#dd7878" />
 
         {
             opengraph !== false && (
                 <>
                     <meta name="og:type" content="website" />
-                    <meta name="og:title" content={title ?? "Vencord"} />
+                    <meta name="og:title" content={title ?? "BetterVLR"} />
                     <meta name="og:description" content={description} />
                     <meta name="og:url" content={Astro.url} />
                     <meta
@@ -62,11 +61,11 @@ const structuredData = JSON.stringify({
         }
         {
             title && opengraph !== false && (
-                <meta name="og:site_name" content="Vencord" />
+                <meta name="og:site_name" content="BetterVLR" />
             )
         }
 
-        <script type="application/ld+json" set:html={structuredData}></script>
+        <script type="application/ld+json" set:html={structuredData} />
 
         <link rel="sitemap" href="/sitemap-index.xml" />
         {/* explode darkreader */}

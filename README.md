@@ -1,3 +1,3 @@
-# Vencord Website
+# BetterVLR Website
 
-https://vencord.dev
+https://bettervlr.com

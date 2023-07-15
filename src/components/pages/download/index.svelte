@@ -4,25 +4,20 @@
 
     import { IS_SERVER } from "scripts/constants";
 
-    const options = ["Windows", "Linux", "Mac", "Browser"] as const;
+    const options = ["Browser", "Android"] as const;
 
     const accents: { [option in (typeof options)[number]]: string } = {
-        Windows: "Blue",
-        Linux: "Green",
-        Mac: "Yellow",
         Browser: "Orange",
+        Android: "Green",
     };
 
     const initialValue = IS_SERVER
-        ? "Windows"
+        ? "Browser"
         : (() => {
               const stored = localStorage.platform;
               if (stored && options.includes(stored)) return stored;
 
-              const platform = navigator.platform.toLowerCase();
-              if (platform.includes("linux")) return "Linux";
-              if (platform.includes("mac")) return "Mac";
-              return "Windows";
+              return "Browser";
           })();
 
     const selected = writable(initialValue);
@@ -50,21 +45,13 @@
 
     <section>
         <!-- grrr <slot> name cannot be dynamic -->
-        {#if $selected === "Windows"}
-            <div in:fade={{ duration: 150 }}>
-                <slot name="windowsTab" />
-            </div>
-        {:else if $selected === "Linux"}
-            <div in:fade={{ duration: 150 }}>
-                <slot name="linuxTab" />
-            </div>
-        {:else if $selected === "Mac"}
-            <div in:fade={{ duration: 150 }}>
-                <slot name="macTab" />
-            </div>
-        {:else if $selected === "Browser"}
+        {#if $selected === "Browser"}
             <div in:fade={{ duration: 150 }}>
                 <slot name="browserTab" />
+            </div>
+        {:else if $selected === "Android"}
+            <div in:fade={{ duration: 150 }}>
+                <slot name="androidTab" />
             </div>
         {/if}
     </section>
@@ -79,7 +66,7 @@
     nav {
         display: grid;
         width: 100%;
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(2, 1fr);
     }
 
     section {
@@ -88,6 +75,8 @@
         background-color: var(--bgCurrentWord);
         padding: 1rem;
 
+        border: 1px solid var(--bg5);
+        border-top: none;
         border-bottom-left-radius: 4px;
         border-bottom-right-radius: 4px;
     }

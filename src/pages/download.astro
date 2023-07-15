@@ -4,22 +4,18 @@ export const prerender = true;
 import Layout from "../layouts/Layout.astro";
 
 import BrowserTab from "components/pages/download/BrowserTab.astro";
-import LinuxTab from "components/pages/download/LinuxTab.astro";
-import MacTab from "components/pages/download/MacTab.astro";
-import WindowsTab from "components/pages/download/WindowsTab.astro";
+import AndroidTab from "components/pages/download/AndroidTab.astro";
 import DownloadTabs from "components/pages/download/index.svelte";
 ---
 
 <Layout
-    title="Download Vencord"
-    description="Download Vencord for Desktop or your favourite Browser"
+    title="Download BetterVLR"
+    description="Download BetterVLR for your favourite Browser or Android"
 >
     <DownloadTabs client:load>
-        <h1 class="p-page-title" slot="title">Download Vencord</h1>
-        <WindowsTab slot="windowsTab" />
-        <LinuxTab slot="linuxTab" />
-        <MacTab slot="macTab" />
+        <h1 class="p-page-title" slot="title">Download BetterVLR</h1>
         <BrowserTab slot="browserTab" />
+        <AndroidTab slot="androidTab" />
     </DownloadTabs>
 </Layout>
 
