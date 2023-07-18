@@ -1,0 +1,52 @@
+---
+import LinkButton from "./LinkButton.astro";
+import { Icon } from "astro-icon";
+const { id, icon, open } = Astro.props;
+---
+
+<LinkButton href="javascript:void(0);" onclick={`window.${id}.showModal()`}>
+    <Icon name={icon} />{open}
+</LinkButton>
+
+<dialog id={id}>
+    <slot name="main" />
+    <form method="dialog">
+        <slot name="close" />
+    </form>
+</dialog>
+
+<style>
+    dialog {
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        background: var(--bg5);
+        border: 1px solid var(--fg0);
+        border-radius: 8px;
+        width: 88%;
+        max-width: 550px;
+    }
+
+    dialog::backdrop {
+        position: fixed;
+        top: 0px;
+        right: 0px;
+        bottom: 0px;
+        left: 0px;
+        background: rgb(0 0 0 / 25%);
+    }
+
+    form {
+        float: right;
+    }
+
+    svg {
+        height: 24px;
+        margin-right: 0.5em;
+    }
+
+    a {
+        padding: 10px;
+    }
+</style>

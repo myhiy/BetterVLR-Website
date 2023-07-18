@@ -2,6 +2,7 @@
 import { Icon } from "astro-icon";
 import Card, { Kind } from "components/Card.astro";
 import LinkButton from "components/LinkButton.astro";
+import Modal from "components/Modal.astro";
 import { CHROME_WEBSTORE_URL, FIREFOX_WEBSTORE_URL } from "scripts/constants";
 import Tab from "./Tab.astro";
 ---
@@ -25,6 +26,35 @@ import Tab from "./Tab.astro";
             <LinkButton href={CHROME_WEBSTORE_URL} target="_blank">
                 <Icon name="simple-icons:brave" />Brave
             </LinkButton>
+            <Modal id="dialog" icon="fa:safari" open="Safari">
+                <main slot="main">
+                    <h1>Download Instructions</h1>
+                    <p>
+                        Install
+                        <a
+                            href="https://apps.apple.com/app/apple-store/id1463298887"
+                            target="_blank"
+                            >Userscripts
+                        </a>
+                    </p>
+                    <p>
+                        After installing Userscripts, install BetterVLR by
+                        <a
+                            href="https://github.com/myhiy/BetterVLR-Builds/raw/main/bettervlr.user.js"
+                            >clicking here
+                        </a>
+                    </p>
+                    <p>
+                        After the download has finished, the manager should
+                        prompt you to install.
+                    </p>
+                    <p>
+                        Reload any VLR pages you may have open after
+                        installation.
+                    </p>
+                </main>
+                <button slot="close">Close</button>
+            </Modal>
         </div>
     </Fragment>
 </Tab>
@@ -46,5 +76,30 @@ import Tab from "./Tab.astro";
 
     a {
         padding: 10px;
+    }
+
+    h1 {
+        color: var(--fg0);
+    }
+
+    p {
+        color: var(--fg0);
+    }
+
+    p > a {
+        padding: 0px;
+    }
+
+    button {
+        padding: 10px;
+        border: 1px solid var(--fg0);
+        border-radius: 8px;
+        color: var(--fg0);
+        background-color: var(--bg3);
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: var(--bg2);
     }
 </style>
